@@ -1,24 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import GlobalContextProvider from './GlobalContext';
+import AuthBox from './components/AuthBox';
+import CarPage from './components/CarPage';
+import Home from './components/Home';
+import MyCars from './components/MyCars';
+import NavBar from './components/NavBar';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import OEMSpecs from './components/OEMSpecs';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalContextProvider> {/* Use GlobalContextProvider as the parent component */}
+      <BrowserRouter>      
+      <NavBar />
+
+        <Routes>
+          <Route path='/auth' element={<AuthBox />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/mycars' element={<MyCars />} />
+          <Route path='/car/:id' element={<CarPage/>} />
+          <Route path='/oem-specs' element={<OEMSpecs/>} />
+
+        </Routes>
+      </BrowserRouter>
+    </GlobalContextProvider>
   );
 }
 
