@@ -25,7 +25,7 @@ function CarPage() {
 
   const fetchCar = async () => {
     try {
-      const response = await axios.get(`/api/used-cars/${id}`);
+      const response = await axios.get(`https://buyc-backend.onrender.com/api/used-cars/${id}`);
       const carData = response.data;
       setCar(carData);
       fetchDealer(carData.userId);
@@ -41,7 +41,7 @@ function CarPage() {
     const encodedYear = encodeURIComponent(year);
 
     try {
-      const response = await axios.get(`/api/oem/specs/${encodedBrand}/${encodedModel}/${encodedYear}`);
+      const response = await axios.get(`https://buyc-backend.onrender.com/api/oem/specs/${encodedBrand}/${encodedModel}/${encodedYear}`);
       const specsData = response.data;
       setCarSpecs(specsData);
       console.log(specsData);

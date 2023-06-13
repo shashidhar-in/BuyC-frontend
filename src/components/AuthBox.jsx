@@ -28,7 +28,12 @@ const AuthBox = () => {
     setIsLogin(!isLogin);
     setErrorMessage('');
   };
-
+  const config = {
+    headers: {
+      "Content-Type": "application/json"
+      },
+      withCredentials: true
+    }
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -43,9 +48,9 @@ const AuthBox = () => {
     try {
       let response;
       if (isLogin) {
-        response = await axios.post('/api/users/login', user);
+        response = await axios.post('https://buyc-backend.onrender.com/api/users/login', user,config);
       } else {
-        response = await axios.post('/api/users/signup', user);
+        response = await axios.post('https://buyc-backend.onrender.com/api/users/signup', user,config);
       }
 
       console.log(response.data);

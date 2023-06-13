@@ -19,7 +19,7 @@ function NavScrollExample() {
   const isAuthenticated = user !== null;
   const handleLogout = async () => {
     try {
-      await axios.post("/api/users/logout");
+      await axios.post("https://buyc-backend.onrender.com/api/users/logout");
       setUser(null);
     }
     catch (error) {

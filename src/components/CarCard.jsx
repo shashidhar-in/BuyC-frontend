@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 function BasicExample({ car }) {
   // Splitting the description into points
   const descriptionPoints = car.description.split(',');
-
+  const imageUrl=`https://buyc-backend.onrender.com${car.imageUrl}`
+console.log(car);
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={car.imageUrl} />
+      <Card.Img variant="top" src={imageUrl} />
       <Card.Body>
         <Card.Title>{car.title}</Card.Title>
         <Card.Subtitle>

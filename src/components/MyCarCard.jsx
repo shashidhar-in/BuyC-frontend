@@ -27,7 +27,7 @@ function BasicExample({ car,selected, onSelect }) {
 
   const fetchCarSpecs = async () => {
     try {
-      const response = await axios.get('/api/oem/all');
+      const response = await axios.get('https://buyc-backend.onrender.com/api/oem/all');
       const carSpecs = response.data;
       setCarSpecs(carSpecs);
 
@@ -68,7 +68,7 @@ function BasicExample({ car,selected, onSelect }) {
       }
 
       // Send the PUT request to update the car
-      const response = await axios.put(`/api/used-cars/edit/${car.id}`, formData, {
+      const response = await axios.put(`https://buyc-backend.onrender.com/api/used-cars/edit/${car.id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -92,7 +92,7 @@ function BasicExample({ car,selected, onSelect }) {
   };
   const handleDeleteCar = async () => {
     try {
-      const response = await axios.delete(`/api/used-cars/delete/${car.id}`);
+      const response = await axios.delete(`https://buyc-backend.onrender.com/api/used-cars/delete/${car.id}`);
       console.log(response.data); // Assuming the server returns a success message
       // Perform any additional actions after deleting the car
     } catch (error) {

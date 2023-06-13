@@ -8,7 +8,7 @@ const GlobalContextProvider = ({ children }) => {
 
   const getCurrentUser = async () => {
     try {
-      const res = await axios.get("/api/users/current");
+      const res = await axios.get("https://buyc-backend.onrender.com/api/users/current");
       if (res.data) {
         setUser(res.data);
       } else {

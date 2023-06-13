@@ -43,7 +43,7 @@ const MyCars = () => {
 
   const fetchCars = async () => {
     try {
-      const response = await axios.get('/api/used-cars');
+      const response = await axios.get('https://buyc-backend.onrender.com/api/used-cars');
       const cars = response.data;
       setCars(cars);
     } catch (error) {
@@ -53,7 +53,7 @@ const MyCars = () => {
 
   const fetchCarSpecs = async () => {
     try {
-      const response = await axios.get('/api/oem/all');
+      const response = await axios.get('https://buyc-backend.onrender.com/api/oem/all');
       const carSpecs = response.data;
       setCarSpecs(carSpecs);
 
@@ -80,7 +80,7 @@ const MyCars = () => {
 
   const handleDeleteSelectedCars = async () => {
     try {
-      await axios.delete('/api/used-cars/delete-multiple', { data: { carIds: selectedCars } });
+      await axios.delete('https://buyc-backend.onrender.com/api/used-cars/delete-multiple', { data: { carIds: selectedCars } });
       fetchCars(); // Refresh the car list after deletion
       setSelectedCars([]); // Clear the selected cars
     } catch (error) {
@@ -111,7 +111,7 @@ const MyCars = () => {
       formData.append('model', newCar.model);
       formData.append('year', newCar.year);
 
-      await axios.post('/api/used-cars/add', formData, {
+      await axios.post('https://buyc-backend.onrender.com/api/used-cars/add', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

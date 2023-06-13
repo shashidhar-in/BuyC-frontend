@@ -18,7 +18,7 @@ const App = () => {
 
   const fetchCars = async () => {
     try {
-      const response = await axios.get('/api/used-cars');
+      const response = await axios.get('https://buyc-backend.onrender.com/api/used-cars');
       setCars(response.data);
       setLoading(false);
     } catch (error) {
